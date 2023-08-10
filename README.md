@@ -72,7 +72,6 @@
     cd $(acc config-dir)
     ```
   - `config.json`を以下のように修正
-    - "default-test-dirname-format": "test"
     - "default-task-choice": "all"
     - "default-template": "python"
   - 同一ディレクトリに`python`フォルダを作成
