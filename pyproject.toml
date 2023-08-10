@@ -14,9 +14,19 @@ black = "^23.7.0"
 poethepoet = "^0.21.1"
 
 [tool.poe.tasks]
+    [tool.poe.tasks.new]
+    help = "Generate new contest directory"
+    cmd = "acc new"
     [tool.poe.tasks.n]
     help = "Generate new contest directory"
     cmd = "acc new"
+    [tool.poe.tasks.test]
+    help = "Run test cases"
+    args = [
+        { name = "contestID", positional = true, required = true},
+        { name = "taskID", positional = true, required = true}
+    ]
+    cmd = "oj test -d ${contestID}/${taskID}/tests -c \"python ${contestID}/${taskID}/main.py\""
     [tool.poe.tasks.t]
     help = "Run test cases"
     args = [
@@ -24,6 +34,13 @@ poethepoet = "^0.21.1"
         { name = "taskID", positional = true, required = true}
     ]
     cmd = "oj test -d ${contestID}/${taskID}/tests -c \"python ${contestID}/${taskID}/main.py\""
+    [tool.poe.tasks.submit]
+    help = "Submit to AtCoder"
+    args = [
+        { name = "contestID", positional = true, required = true},
+        { name = "taskID", positional = true, required = true}
+    ]
+    cmd = "acc submit -c ${contestID} -t ${contestID}_${taskID} ${contestID}/${taskID}/main.py"
     [tool.poe.tasks.s]
     help = "Submit to AtCoder"
     args = [

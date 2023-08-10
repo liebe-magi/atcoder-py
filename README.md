@@ -103,17 +103,17 @@
 ## コンテスト用解答ファイルの生成 (`new`)
 
 ```
-poe n [contestID]
+poe new [contestID]
 ```
 
 ## テストケースのローカルチェック (`test`)
 
 ```
-poe t [contestID] [taskID]
+poe test [contestID] [taskID]
 ```
 
 ## 提出 (`submit`)
 
 ```
-poe s [contestID] [taskID]
+poe submit [contestID] [taskID]
 ```
