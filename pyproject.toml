@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "atcoder-py"
+version = "0.1.0"
+description = ""
+authors = ["りーべ <liebe.magi@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8,<3.9"
+online-judge-tools = "^11.5.1"
+numpy = "1.20.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+poethepoet = "^0.21.1"
+
+[tool.poe.tasks]
+    [tool.poe.tasks.n]
+    help = "Generate new contest directory"
+    cmd = "acc new"
+    [tool.poe.tasks.t]
+    help = "Run test cases"
+    args = [
+        { name = "contestID", positional = true, required = true},
+        { name = "taskID", positional = true, required = true}
+    ]
+    cmd = "oj test -d ${contestID}/${taskID}/tests -c \"python ${contestID}/${taskID}/main.py\""
+    [tool.poe.tasks.s]
+    help = "Submit to AtCoder"
+    args = [
+        { name = "contestID", positional = true, required = true},
+        { name = "taskID", positional = true, required = true}
+    ]
+    cmd = "acc submit -c ${contestID} -t ${contestID}_${taskID} ${contestID}/${taskID}/main.py"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
