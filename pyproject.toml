@@ -1,17 +1,17 @@
 [tool.poetry]
 name = "atcoder-py"
 version = "0.1.0"
-description = ""
+description = "Python用AtCoder環境"
 authors = ["りーべ <liebe.magi@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8,<3.9"
-online-judge-tools = "^11.5.1"
 numpy = "1.20.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
 poethepoet = "^0.21.1"
+online-judge-tools = "^11.5.1"
 
 [tool.poe.tasks]
     [tool.poe.tasks.new]
