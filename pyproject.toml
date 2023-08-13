@@ -5,8 +5,17 @@ description = "Python用AtCoder環境"
 authors = ["りーべ <liebe.magi@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8,<3.9"
-numpy = "1.20.0"
+python = "^3.10,<3.11"
+numpy = "1.24.1"
+pandas = "1.5.2"
+networkx = "3.0"
+sympy = "1.11.1"
+sortedcontainers = "2.4.0"
+more-itertools = "9.0.0"
+bitarray = "2.6.2"
+pulp = "2.7.0"
+mpmath = "1.2.1"
+z3-solver = "4.12.1.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
@@ -40,14 +49,14 @@ online-judge-tools = "^11.5.1"
         { name = "contestID", positional = true, required = true},
         { name = "taskID", positional = true, required = true}
     ]
-    cmd = "acc submit -c ${contestID} -t ${contestID}_${taskID} ${contestID}/${taskID}/main.py"
+    cmd = "acc submit -c ${contestID} -t ${contestID}_${taskID} ${contestID}/${taskID}/main.py -- --guess-python-interpreter pypy"
     [tool.poe.tasks.s]
     help = "Submit to AtCoder"
     args = [
         { name = "contestID", positional = true, required = true},
         { name = "taskID", positional = true, required = true}
     ]
-    cmd = "acc submit -c ${contestID} -t ${contestID}_${taskID} ${contestID}/${taskID}/main.py"
+    cmd = "python scripts/submit.py ${contestID} ${taskID}"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
