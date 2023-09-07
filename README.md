@@ -9,11 +9,11 @@
 
 - Python環境の構築
   - おすすめは[asdf](https://asdf-vm.com/)による環境構築
-  - AtCoder環境に合わせて、3.8系にしておくのが良し
+  - AtCoder環境に合わせて、pypy3.10系にしておくのが良し
   ```
   # asdfの場合
   asdf plugin-add python
-  asdf install python 3.8.17
+  asdf install python pypy-3.10-7.3.12
   ```
 - [Poetry](https://github.com/python-poetry/poetry)の導入
   ```
